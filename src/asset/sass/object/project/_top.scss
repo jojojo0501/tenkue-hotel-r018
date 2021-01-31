@@ -1,2 +1,15 @@
 .p-top {
+
+.p-top-slider {
+  position: relative;
+  height: 400px;
+  
+  .slider-item {
+    position: absolute;
+    display: none;
+  }
+
+}
+
+
 }
