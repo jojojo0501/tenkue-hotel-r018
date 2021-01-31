@@ -1,2 +1,110 @@
 .p-faq {
+  padding:150px 0px;
+  li {
+    list-style: none;
+  }
+  .p-faq__title{
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    background: #00478B;
+    margin: 0px 0px 50px;
+    padding: 0.2em 1em;
+  }
+  .menu__item {
+    color: #222222;
+    display: block;
+    position: relative;
+    &:not(:last-child){
+      margin-bottom: 30px;
+    }
+    
+    
+    .menu__item__link {
+      color: #222;
+      display: block;
+      cursor: pointer;
+      padding: 0.5em 2em 0.5em 3em;
+      border-bottom: 2px solid rgba(0, 71, 139, 0.1);
+      position:relative;
+      &::before{
+        content: '';
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        // background-color: #444;
+        background-image: url(/asset/image/icon_question.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      &::after{
+        content: '';
+      width: 1.2em;
+      height: 1.2em;
+      position: absolute;
+      top: 50%;
+      right: 0.5em;
+      transform: translateY(-50%);
+      background-image: url(/asset/image/icon_arrow_bottom.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      }
+      &.open{
+        border-bottom: none;
+          &::after{
+            content: "";
+            width: 1.2em;
+            height: 1.2em;
+            position: absolute;
+            top: 50%;
+            right: 0.5em;
+            transform: translateY(-50%);
+            // background-image: url(/asset/image/icon_arrow_bottom.svg);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(/asset/image/icon_arrow_top.svg) !important;
+          }
+        }
+    }
+  }
 }
+
+  .submenu {
+    background: #fff;
+    display: none;
+    opacity: 0;
+    transition: 0.2s;
+    padding-top: 0;
+    &.open{
+      opacity: 1;
+    }
+  }
+  .submenu__item {
+    height: auto;
+    padding: 0.5em 2em 1.5em 4.5em;
+    margin-bottom: 4em;
+    border-bottom: 2px solid rgba(0, 71, 139, 0.1);
+    position: relative;
+    &::before{
+      content: '';
+      width: 1.8em;
+      height: 1.8em;
+      position: absolute;
+      top: 2em;
+      left: 2em;
+      transform: translateY(-50%);
+      // background-color: #444;
+      background-image: url(/asset/image/icon_answer.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+
