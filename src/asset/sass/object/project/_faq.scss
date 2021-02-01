@@ -11,7 +11,7 @@
     margin: 0px 0px 50px;
     padding: 0.2em 1em;
   }
-  .menu__item {
+  .p-faq__question {
     color: #222222;
     display: block;
     position: relative;
@@ -20,7 +20,7 @@
     }
     
     
-    .menu__item__link {
+    .p-faq__questionLink{
       color: #222;
       display: block;
       cursor: pointer;
@@ -75,22 +75,31 @@
   }
 }
 
-  .submenu {
+  .p-faq__answerMenu {
     background: #fff;
     display: none;
+    transition: 0.3s;
     opacity: 0;
-    transition: 0.2s;
-    padding-top: 0;
     &.open{
       opacity: 1;
     }
   }
-  .submenu__item {
-    height: auto;
-    padding: 0.5em 2em 1.5em 4.5em;
-    margin-bottom: 4em;
-    border-bottom: 2px solid rgba(0, 71, 139, 0.1);
+  .p-faq__answerItem {
+    height: 0;
+    display: none;
+    padding: 0 2em 0 4.5em;
+    opacity: 0;
     position: relative;
+    transition: all 0.3s;
+    
+    &.open{
+      height: auto;
+      padding: 0.5em 2em 1.5em 4.5em;
+      margin-bottom: 4em;
+      border-bottom: 2px solid rgba(0, 71, 139, 0.1);
+      position: relative;
+      opacity: 1;
+    }
     &::before{
       content: '';
       width: 1.8em;
