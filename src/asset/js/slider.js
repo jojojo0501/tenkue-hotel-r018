@@ -1,15 +1,15 @@
 // 画像スライダーの実装はこちらに記述してください
 $(function(){
   //スライドの画像の数を取得
-$('.p-top-slider').each(function(){
-  let $slides = $(this).find('.slider-item');
+$('.p-top__slider').each(function(){
+  let $slides = $(this).find('.p-top__slider__item');
   let slideNum = $slides.length;
   let currentIdx = 0;　//何番目か
 
   //最初の画像をフェードイン
-  $('.slider-item').eq(currentIdx).fadeIn();
+  $('.p-top__slider__item').eq(currentIdx).fadeIn(2000);
   //３秒後に次のスライドを表示
-  setInterval(NextSlide,3000);
+  setInterval(NextSlide,4000);
   
   //次のスライドを表示するメソッド
   function NextSlide(){
@@ -19,8 +19,8 @@ $('.p-top-slider').each(function(){
       nextIdx = 0
     }
     //現在のスライドをフェードアウト
-    $('.slider-item').eq(currentIdx).fadeOut();
-    $('.slider-item').eq(nextIdx).fadeIn();
+    $('.p-top__slider__item').eq(currentIdx).fadeOut(2000);
+    $('.p-top__slider__item').eq(nextIdx).fadeIn(2000);
     currentIdx = nextIdx;
   }
 });
