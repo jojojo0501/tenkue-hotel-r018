@@ -1,2 +1,109 @@
+// Breakpoint定義
+$breakpoints: ( //キー　　値
+  'md': 'screen and (max-width: 1000px)', //1000px以下（タブレット）用の表示
+  'sm': 'screen and (max-width: 576px)' //576px以下（スマホ）用の表示
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+
+  //map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+  }
+}
+
+
 .p-contact {
+  margin-top: 80px;
+  padding-bottom: 150px;
+  .p-contact__mainVisual{
+    width: 100%;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-image: url(/asset/image/contact_01.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .p-contact__inner{
+    padding-top: 75px;
+  }
+    .c-title{
+      margin-bottom: 60px;
+      text-align: center;
+      letter-spacing: 2px;
+    position: relative;
+    font-size: 24px;
+    &::after{
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -5px;
+      background-color: $color-primary;
+    }
+  }
+.p-contact__subtitle{
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.p-contact__text{
+  text-align: center;
+  margin-bottom: 60px;
+}
+.p-contact__container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  .p-contact__label{
+
+    width: 25%;
+    margin: 0 auto;
+    padding: 0.6em;
+    color: #fff;
+    background-color: $color-primary;
+  }
+  .p-contact__input{
+    width: 70%;
+    padding: 0.6em;
+    font-size: 16px;
+    background-color: $color-gold;
+    border: none;
+  }
+  .p-contact__textarea{
+    resize: none;
+  }
+  
+}
+.p-contact__note{
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+  a{
+    font-size: 14px;
+  }
+}
+.p-contact__checkBox{
+  margin-bottom: 30px;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  
+}
+.p-contact__btn{
+  font-size: 16px;
+  width: 300px;
+  padding: 1em;
+  background-color: #fff;
+  border: solid 1px #222;
+  margin: 0 auto 20px;
+  display: block;
+  cursor: pointer;
+
+}
 }
