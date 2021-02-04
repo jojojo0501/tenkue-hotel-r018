@@ -1,2 +1,83 @@
 .c-hamburger {
 }
+  .p-hamburger {
+    width: 48px;
+    height: 48px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .p-hamburger_line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 5px;
+    margin: auto;
+    width: 20px;
+    height: 2px;
+    background-color: #00478b;
+    transition: inherit;
+  }
+
+  .p-hamburger_line::before {
+    width: 25px;
+    top: -8px;
+  }
+
+  .p-hamburger_line::after {
+    width: 15px;
+    top: 8px;
+  }
+  
+  .p-hamburger_line::before,
+  ::after {
+    position: absolute;
+    display: block;
+    height: 100%;
+    right: 0;
+    background-color: inherit;
+    content: '';
+    transition: inherit;
+    }
+
+  .c-button {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 10;
+  }
+    
+
+  .u-visuallyHidden {
+    position: fixed;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    margin: -1;
+  }
+
+@media screen and (max-width: 1000px) {
+  .p-hamburger {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .p-hamburger {
+    display: none;
+  }
+  .l-global_nav_box {
+    display: flex;
+    align-items: center;
+  }
+}
