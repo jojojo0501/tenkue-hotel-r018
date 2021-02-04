@@ -69,7 +69,7 @@
   }
 
   .is-hidden {
-    visibility: hidden;
+    // visibility: hidden;
   }
 
   .l-global_nav {
@@ -84,26 +84,25 @@
     transition: all 0.5s cubic-bezier(0.52, 0, 0.5, 1.8);
     z-index: 9;
   }
-
   .l-container {
     position: absolute;
-    top: 35px;
-    left: 50px;
+    top: 35%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 99;
   }
 
   .l-global_nav_item:not(:last-child) {
     margin-bottom: 1.6rem;
   }
 
-  .l-global_nav_item {
-    opacity: 0;
-  }
+  // .l-global_nav_item {
+  //   opacity: 0;
+  // }
 
   .l-global_nav_link {
-    color: blue;
+    color: #222;
   }
+  
 }
 
 @media screen and (min-width:1001px) {

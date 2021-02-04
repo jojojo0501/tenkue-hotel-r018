@@ -40,12 +40,28 @@
     } 
   }
 
-  .p-hamburger_line[aria-expanded='true'] {
+  .p-hamburger[aria-expanded='true'] 
+  .p-hamburger_line {
+    left: 0;
+    background-color: transparent;
+
     &::before {
       width: 20px;
       transform: rotate(45deg);
     }
+
+    &::after {
+      width: 20px;
+      transform: rotate(-45deg);
+    }
+
+    &::before,
+    &::after {
+      top: 0;
+      background-color: #fff;
+    }
   }
+
 
   .c-button {
     position: relative;
