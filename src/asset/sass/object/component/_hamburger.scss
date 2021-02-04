@@ -17,32 +17,38 @@
     height: 2px;
     background-color: #00478b;
     transition: inherit;
-  }
-
-  .p-hamburger_line::before {
-    width: 25px;
-    top: -8px;
-  }
-
-  .p-hamburger_line::after {
-    width: 15px;
-    top: 8px;
-  }
-  
-  .p-hamburger_line::before,
-  ::after {
-    position: absolute;
-    display: block;
-    height: 100%;
-    right: 0;
-    background-color: inherit;
-    content: '';
-    transition: inherit;
+    
+    &::before {
+      width: 25px;
+      top: -8px;
     }
+
+    &::after {
+      width: 15px;
+      top: 8px;
+    }
+
+    &::before, 
+    &::after {
+      position: absolute;
+      display: block;
+      height: 100%;
+      right: 0;
+      background-color: inherit;
+      content: '';
+      transition: inherit;
+    } 
+  }
+
+  .p-hamburger_line[aria-expanded='true'] {
+    &::before {
+      width: 20px;
+      transform: rotate(45deg);
+    }
+  }
 
   .c-button {
     position: relative;
-    display: inline-block;
     text-decoration: none;
     appearance: none;
     border: none;
