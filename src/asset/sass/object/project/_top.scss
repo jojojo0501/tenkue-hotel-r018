@@ -1,55 +1,61 @@
+//ブレイクポイント
+$breakpoint:(
+  s:'screen and(max-width:576px)',
+  m:'screen and(max-width:1000px)'
+);
+//mixin（レスポンシブ）
+@mixin mq($bp){
+ @media #{map-get($breakpoint,$bp)}{
+    @content;
+  }
+} 
+
 .p-top {
   //-------------共通部分___________________________________//
+  font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
   box-sizing: border-box;
+  margin-bottom: 15%;
   
   &__container {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
     max-width: 1024px;
-
-    @media screen and (max-width:1000px){
+    @include mq('m'){
       padding-left: 3%;
       padding-right: 3%;
     }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       padding-left: 5%;
       padding-right: 5%;
     }
-
   }
   
   &__title {
     font-size: 32px;
     text-align: center;
     margin-bottom: 5%;
-
-    @media screen and (max-width:1000px){
+    @include mq('m'){
       font-size: 36px;
     }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       font-size: 40px;
     }
-
   }
 
   &__text {
     line-height: 2.5;
     font-size: 16px;
     text-align: center;
-
-    @media screen and (max-width:1000px){
+    @include mq('m'){
       font-size: 2vw;
-    
     }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       font-size: 4vw;
-      
     }
-    
   }
 
-  .button {
+  &__button {
     display: block;
     margin:40px auto 30px auto;
     max-width: 400px;
@@ -63,21 +69,23 @@
   //-------------トップページスライダー-------------------------//
   &__slider {
     position: relative;
-    height: 500px;
-    margin-bottom: 12%;
-    @media screen and (max-width:1000px){
-    height: 400px;
+    height: 600px;
+    margin-bottom: 5%;
+    @include mq('m'){
+      height: 400px;
     }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       height: 300px;
     }
     
     &__item {
       position: absolute;
-      transform-origin: center;
-      transform: scale(1.4,1.4);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
       display: none;
-      width: 100%;
+      min-width: 100%;
+      width: auto;
       height: 100%;
       overflow: hidden;
     }
@@ -87,24 +95,18 @@
 .area-guide{
   display: flex;
 
-  @media screen and (max-width:1000px){
-  }
-  @media screen and(max-width:576px) {
+  @include mq('s'){
     display: block;
   }
 
   &__list {
     width: 50%;
-    @media screen and (max-width:1000px){
-    }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       width: 100%;
     }
 
     img { width: 90%;
-      @media screen and (max-width:1000px){
-      }
-      @media screen and(max-width:576px) {
+      @include mq('s'){
         width: 100%;
       }
     }
@@ -114,13 +116,7 @@
     justify-content: space-between;
     margin-top: 5%;
     margin-bottom: 5%;
-
     img {
-      width: 23%;
-      @media screen and (max-width:1000px){
-      width: 23%;  
-      }
-      @media screen and(max-width:576px) {
       width: 23%;
       }
     }
@@ -134,41 +130,29 @@
     text-align: left;
     display: flex;
     justify-content: space-between;
-
-    @media screen and (max-width:1000px){
-
-    }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       display: block;
-      
     }
-
 
     &__item {
       width: 30%;
+      @include mq('s'){
+        width: 100%;
+      }
 
-    @media screen and (max-width:1000px){
-    }
-    @media screen and(max-width:576px) {
-      width: 100%;
-    }
       h3 {
         font-size: 1.1em;
-        @media screen and (max-width:1000px){
-        }
-        @media screen and(max-width:576px) {
+        @include mq('s'){
           font-size: 1.4em;
         }
-
       }
 
       .p-top__text {
-        @media screen and(max-width:576px) {
-        text-align: left;
-        line-height: 1.8;
+        @include mq('s'){
+          text-align: left;
+          line-height: 1.8;
+        }
       }
-      }
-
     }
   }
 
@@ -176,17 +160,13 @@
   //-------------アクセスーー------------------------------//
 .access {
   display: flex;
-  @media screen and (max-width:1000px){
-  
-  }
-  @media screen and(max-width:576px) {
+  @include mq('s'){
     display: block;
   }
+  
   &__map {
     width: 45%;
-    @media screen and (max-width:1000px){
-    }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       width: 100%;
     }
 
@@ -198,15 +178,12 @@
   &__text {
     width: 45%;
     margin-left: 8%;
-    @media screen and (max-width:1000px){
-      
-    }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       margin-left: 0;
       width: 100%;
     }
   }
 }
   //-------------アクセスーー------------------------------//
-}
+
 
