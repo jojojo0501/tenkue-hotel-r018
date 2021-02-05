@@ -1,5 +1,26 @@
+//マップ型変数breakpointsを定義
+$breakpoints: (
+//キー　　値
+  'sm': 'screen and (max-width: 576px)', //576px以下（スマホ）用の表示
+  'md': 'screen and (max-width: 1000px)' //1000px以下（タブレット・PC）用の表示
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+//map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+
+
 .p-faq {
   padding:150px 0px;
+  @include mq(sm) {
+    padding: 150px 0 75px;
+    }
+    
   li {
     list-style: none;
   }
@@ -91,6 +112,9 @@
     opacity: 0;
     position: relative;
     transition: all 0.3s;
+    @include mq(sm) {
+     padding-left: 2.5em;
+    }
     
     &.open{
       height: auto;
@@ -99,6 +123,8 @@
       border-bottom: 2px solid rgba(0, 71, 139, 0.1);
       position: relative;
       opacity: 1;
+      @include mq(sm) {
+        padding-left: 2.5em;       }
     }
     &::before{
       content: '';
@@ -113,6 +139,9 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
+      @include mq(sm) {
+        left: 0; //スマホの時だけ高さを60pxに！
+      }
     }
   }
 
