@@ -1,17 +1,35 @@
-.p-access {
+// -----------レスポンシブ対応---------------//
+//-----------------ブレイクポイント-----------//
+$breakpoint:(
+  s:'screen and(max-width:576px)',
+  m:'screen and(max-width:1000px)'
+  );
+  //-----------------ブレイクポイント-----------//
+  //-----------メディアクエリ-------------------//
+@mixin mq($bp) {
+  @media #{map-get($breakpoint,$bp)}{
+    @content;
+  }
+}
+  //-----------メディアクエリ-------------------//
+// -----------レスポンシブ対応---------------//
 
-  //-----------共通部分------------------//
+//-----------共通部分------------------//
+.p-access {
   box-sizing: border-box;
+  font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
+  letter-spacing: 2px;
   
   //-----------共通部分------------------//
   //-----------トップ画像------------------//
-  &__top {
+  &__top-img {
     width: 100%;
     height: 60vh;
     background-image: url(../../asset/image/access_01.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin:7% 0;
   }
   //-----------トップ画像------------------//
   //-----------コンテンツ------------------//
@@ -20,25 +38,24 @@
     margin-right: auto;
     margin-bottom: 15%;
     max-width: 1024px;
-    @media screen and (max-width:1000px){
+    @include mq('m'){
       padding-left: 3%;
       padding-right: 3%;
     }
-    @media screen and(max-width:576px) {
+    @include mq('s'){
       padding-left: 5%;
       padding-right: 5%;
     }
+  }
 
+  &__ImageList {
+    display:flex;
+    flex-wrap: wrap;
 
-    &__ImageList {
-      display:flex;
-      flex-wrap: wrap;
-
-      img {
-        width: 24%;
-        margin-left: 1%;
-        margin-bottom: 1%;
-      }
+    img {
+      width: 24%;
+      margin-left: 1%;
+      margin-bottom: 1%;
     }
   }
 
@@ -59,27 +76,24 @@
         left: 50%;
         transform: translateX(-50%); 
       }
-      @media screen and (max-width:1000px){
-        font-size: 26px;
+      @include mq('m'){
+        font-size: 28px;
       }
-      @media screen and(max-width:576px) {
+      @include mq('s'){
         font-size: 30px;
       }
     }
-    .p-access__text {
-      text-align: center;
 
-      @media screen and (max-width:1000px){
+    &__text {
+      text-align: center;
+      @include mq('m'){
         font-size: 2vw;
       }
-      @media screen and(max-width:576px) {
+      @include mq('s'){
         font-size: 4vw;
       }
-      
     }
-
   }
-
   //-----------コンテンツ------------------//
 
 
