@@ -1,118 +1,70 @@
-.l-header {
-  width: 100%;
-  height: 80px;
-  padding: 10px 3%;
-  background-color: greenyellow;
+.open {
+  .l-nav__item {
+    transform: translateY(0px) scale(1) rotate(0deg); 
+    a {
+      color:#fff
+    }
+  }
+}
+
+.l-header{
+  background-color: #fff;
+  color: #fff;
+  height:80px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.l-nav__list{
+  /* navの横並び */
+  display: flex;
+}
+
+.l-nav__item{
+  /* メニューの右側に余白 */
+  margin-right: 50px;
+  letter-spacing: 0.1rem;
+}
+
+
+@media screen and (max-width:1000px){
+/* ------------------ */
+/* humberger-menu */
+/* ------------------ */
+.l-header{
+    padding: 0 5%;
+}
+
+.l-nav__wrapper{
+  display: none;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
-
-  &__inner {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-
-  &__logo {
-      width: auto;
-      height: 25px;
-
-      img {
-        width: auto;
-        height: 100%;
-      }
-    }
+  z-index: 2;
 }
-
-.js-nav-cover {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9;
+.l-header__nav{
   width: 100%;
-  height: 120%;
-  background-color: #222;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.52,0,0.5,1.8);
+  height: 100%;
+  background-color:#1B1310;
+  z-index: 2;
 }
-
-.l-global_nav_item {
-  list-style: none;
-  margin-right: 30px;
-}
-
-.l-global_nav_link {
-  padding: 0.2rem 1rem;
-  text-align: center;
-  letter-spacing: 0.1rem;
-  position: relative;
+.l-header__nav .l-nav__list{
   display: block;
-  transition: 0.3s;
-  
-    &:hover {
-      background-color: rgba(155,155,155,0.2);
-    }
-  }
-
-@media screen and (max-width: 1000px) {
-  
-  .l-nav-cover {
-    display: block;
-  }
-
-  .is-hidden {
-    // visibility: hidden;
-  }
-
-  .l-global_nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    width: 100%;
-    height: 120%;
-    background: transparent;
-    transition: all 0.5s cubic-bezier(0.52, 0, 0.5, 1.8);
-    z-index: 9;
-  }
-  .l-container {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .l-global_nav_item:not(:last-child) {
-    margin-bottom: 1.6rem;
-  }
-
-  // .l-global_nav_item {
-  //   opacity: 0;
-  // }
-
-  .l-global_nav_link {
-    color: #222;
-  }
-  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  // transform: translateY(0px) scale(1) rotate(0deg);
+  text-align: center;
 }
 
-@media screen and (min-width:1001px) {
 
-  .l-global_nav_box {
-    display: flex;
-    align-items: center;
-  }
-
-  .js-nav-cover {
-    display: none;
-  }
+.l-header__nav .l-nav__item{
+  margin-right: 0;
+  margin-bottom: 40px;
 }
+}
+

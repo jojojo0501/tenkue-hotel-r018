@@ -1,39 +1,29 @@
 <header class="l-header" id="header">
-  <div class="l-header__inner">
+  <!-- <div class="l-header__inner"> -->
     <a class="l-header__logo" href="">
       <img src="../../asset/image/logo_header.svg" alt="logo">
     </a>
-    <button 
-      class="c-button p-hamburger js-titleLoadAnimDelay2"
-      type="button" 
-      aria-controls="gloval-nav" 
-      aria-expanded="false"
-      id="js-buttonHamburger">
-      <span class="p-hamburger_line">
-        <span class="u-visuallyHidden">メニュー開閉</span>
-      </span>
-    </button>
-    <div class="js-nav-cover is-hidden"></div>
-    <div class="l-global_nav is-hidden" id="global_nav">
-      <div class="l-container">
-        <ul class="l-global_nav_box">
-          <li class="l-global_nav_item">
-            <a class="l-global_nav_link" href="#">TOP</a>
-          </li>
-          <li class="l-global_nav_item">
-            <a class="l-global_nav_link" href="#">ROOM</a>
-          </li>
-          <li class="l-global_nav_item">
-            <a class="l-global_nav_link" href="#">AREA GUIDE</a>
-          </li>
-          <li class="l-global_nav_item">
-            <a class="l-global_nav_link" href="#">ACCESS</a>
-          </li>
-          <li class="l-global_nav_item">
-            <a class="l-global_nav_link" href="#">CONTACT</a>
-          </li>
+
+  <!-- ナビゲーションメニュー -->
+    <div class="l-nav__wrapper">
+      <nav class="l-header__nav">
+        <ul class="l-nav__list">
+          <li class="l-nav__item"><a href="#">TOP</a></li>
+          <li class="l-nav__item"><a href="#">ROOM</a></li>
+          <li class="l-nav__item"><a href="#">AREA GUIDE</a></li>
+          <li class="l-nav__item"><a href="#">ACCESS</a></li>
+          <li class="l-nav__item"><a href="#">CONTACT</a></li>
         </ul>
-      </div>
+      </nav>
+    </div>
+
+  <!-- ハンバーガーボタン -->
+    <div class="c-burger__btn">
+      <span class="p-bars">
+        <span class="p-bar p-bar__top"></span>
+        <span class="p-bar p-bar__mid"></span>
+        <span class="p-bar p-bar__bottom"></span>
+      </span>
     </div>
   </div>
 </header>
