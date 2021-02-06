@@ -1,19 +1,22 @@
+//--------------------レスポンシブ対応------------------------//
 //ブレイクポイント
 $breakpoint:(
   s:'screen and(max-width:576px)',
   m:'screen and(max-width:1000px)'
-);
-//mixin（レスポンシブ）
-@mixin mq($bp){
- @media #{map-get($breakpoint,$bp)}{
-    @content;
-  }
-} 
+  );
+  //mixin（レスポンシブ）
+  @mixin mq($bp){
+    @media #{map-get($breakpoint,$bp)}{
+      @content;
+    }
+  } 
+  //--------------------レスポンシブ対応------------------------//
 
 .p-top {
   //-------------共通部分___________________________________//
   font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
   box-sizing: border-box;
+  margin-top: 7%;
   margin-bottom: 15%;
   
   &__container {
@@ -92,7 +95,7 @@ $breakpoint:(
   }
   //-------------トップページスライダー-------------------------//
   //-------------エリアガイドー-------------------------------//
-.area-guide{
+.p-top__areaguide{
   display: flex;
 
   @include mq('s'){
@@ -122,11 +125,10 @@ $breakpoint:(
     }
   }
 
-
 }
   //-------------エリアガイドー------------------------------//
   //-------------ルームーーー------------------------------//
-  .room {
+  .p-top__room {
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -158,7 +160,7 @@ $breakpoint:(
 
   //-------------ルームーーー------------------------------//
   //-------------アクセスーー------------------------------//
-.access {
+.p-top__access {
   display: flex;
   @include mq('s'){
     display: block;
