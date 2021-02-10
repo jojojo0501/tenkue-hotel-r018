@@ -24,7 +24,6 @@ $breakpoint:(
     margin-right: auto;
     margin-top: 10%;
     max-width: 1024px;
-    background: #fffff9;
     @include mq('m'){
       padding-left: 3%;
       padding-right: 3%;
@@ -76,12 +75,6 @@ $breakpoint:(
     position: relative;
     height: calc(70vh - 80px);
     margin-bottom: 5%;
-    @include mq('m'){
-      // height: 400px;
-    }
-    @include mq('s'){
-      // height: 300px;
-    }
     
     &__item {
       position: absolute;
@@ -98,14 +91,16 @@ $breakpoint:(
         object-fit: cover;
         height: 100%;
       }
-  
     }
   }
   //-------------トップページスライダー-------------------------//
   //-------------エリアガイドー-------------------------------//
+  &--background-yellow {
+    background: #fffff9;
+  }
+
   &__areaguide{
     display: flex;
-    
     @include mq('s'){
       display: block;
     }
