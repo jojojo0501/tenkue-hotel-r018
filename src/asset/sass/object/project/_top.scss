@@ -16,14 +16,15 @@ $breakpoint:(
   //-------------共通部分___________________________________//
   font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
   box-sizing: border-box;
-  margin-top: 7%;
-  margin-bottom: 15%;
+  margin-top: 80px;
+  padding-bottom: 60px;
   
   &__container {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
     max-width: 1024px;
+    background: #fffff9;
     @include mq('m'){
       padding-left: 3%;
       padding-right: 3%;
@@ -37,6 +38,7 @@ $breakpoint:(
   &__title {
     font-size: 32px;
     text-align: center;
+    letter-spacing: 2px;
     margin-bottom: 5%;
     @include mq('m'){
       font-size: 36px;
@@ -72,35 +74,41 @@ $breakpoint:(
   //-------------トップページスライダー-------------------------//
   &__slider {
     position: relative;
-    height: 600px;
+    height: calc(70vh - 80px);
     margin-bottom: 5%;
     @include mq('m'){
-      height: 400px;
+      // height: 400px;
     }
     @include mq('s'){
-      height: 300px;
+      // height: 300px;
     }
     
     &__item {
       position: absolute;
+      display: flex;
+      justify-content: center;
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
-      display: none;
-      min-width: 100%;
-      width: auto;
+      width: 100%;
       height: 100%;
+      align-items: center;
       overflow: hidden;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+  
     }
   }
   //-------------トップページスライダー-------------------------//
   //-------------エリアガイドー-------------------------------//
-.p-top__areaguide{
-  display: flex;
-
-  @include mq('s'){
-    display: block;
-  }
+  &__areaguide{
+    display: flex;
+    
+    @include mq('s'){
+      display: block;
+    }
 
   &__list {
     width: 50%;
@@ -108,12 +116,13 @@ $breakpoint:(
       width: 100%;
     }
 
-    img { width: 90%;
+    > img { width: 90%;
       @include mq('s'){
         width: 100%;
       }
     }
   }
+
   &__img {
     display: inline-flex;
     justify-content: space-between;
