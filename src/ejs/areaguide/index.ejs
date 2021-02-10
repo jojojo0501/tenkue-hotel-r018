@@ -27,14 +27,13 @@
                     <h2 class="c-title">AREA MAP</h2>
                     <img src="../../asset/image/areaguide_02.png" class="p-areaguide__map" alt="大阪・梅田周辺">
                     <h3 class="p-areaguide__subtitle">大阪・梅田周辺</h3>
-
                     <div class="l-col3">
                         <div class="l-col__list">
                             <img src="../../asset/image/access_04.jpg" alt="">
                             <h4>大阪駅</h4>
-                            <button class="p-areaguide__detailButton js-modal-opener">詳しく見る</button>
+                            <button class="p-areaguide__detailButton js-modal-opener" data-target="modal01">詳しく見る</button>
                         </div>
-                        <div class="p-modal js-modal-element">
+                        <div id="modal01" class="p-modal js-modal-element">
                             <div class="p-modal__inner">
                                 <h4>大阪駅</h4>
                                 <img src="../../asset/image/access_04.jpg" alt="">
@@ -62,9 +61,69 @@
                         <div class="l-col__list">
                             <img src="../../asset/image/access_07.jpg" alt="">
                             <h4>スカイビル</h4>
-                            <button class="p-areaguide__detailButton js-modal-opener">詳しく見る</button>
+                            <button class="p-areaguide__detailButton js-modal-opener" data-target="modal02">詳しく見る</button>
                         </div>
-                        <div class="p-modal js-modal-element">
+                        <div id="modal02" class="p-modal js-modal-element">
+                            <div class="p-modal__inner">
+                                <h4>スカイビル</h4>
+                                <img src="../../asset/image/access_07.jpg" alt="">
+                                <p>大阪駅の中心地で、駅エリアにはノースゲートビルディング、サウスゲートビルディングに入る
+                                    大丸梅田店、駅マルシェ大阪、ALBi(アルビ)、セントラルコートなどに450店舗以上の個性的な
+                                    ショップやレストラン・カフェ160店舗以上が集結した、まったく新しい、近代的な駅に生まれ変わり
+                                    、歩くだけでも楽しいスポットです。
+                                </p>
+                                <p>
+                                    <a href="https://www.jr-odekake.net/eki/top?id=0610130" 
+                                            target="_blank" 
+                                            rel="noopener"
+                                    >【公式サイトはこちら】</a><br>
+                                    <a href="https://www.jr-odekake.net/eki/top?id=0610130" 
+                                        target="_blank" 
+                                        rel="noopener"
+                                    >https://www.jr-odekake.net/eki/top?id=0610130</a>
+                                </p>
+                                <button class="p-modal__closeButton js-modal-closer">
+                                    <img src="../../asset/image/icon_close.svg" alt="閉じる">
+                                </button>
+                            </div>
+                            <div class="p-modal__cover js-modal-cover"></div>
+                        </div>
+                        <div class="l-col__list">
+                            <img src="../../asset/image/access_07.jpg" alt="">
+                            <h4>スカイビル</h4>
+                            <button class="p-areaguide__detailButton js-modal-opener" data-target="modal02">詳しく見る</button>
+                        </div>
+                        <div id="modal02" class="p-modal js-modal-element">
+                            <div class="p-modal__inner">
+                                <h4>スカイビル</h4>
+                                <img src="../../asset/image/access_07.jpg" alt="">
+                                <p>イギリスの有名情報雑誌が2008年に選出した「世界の建築トップ20」にランクインした
+                                    梅田スカイビルの高さ173mの連結高層ビルの最上階の展望台です。オフィスをはじめ
+                                    ショールームやイベントホール、レストラン、ショップに映画館などを備えた複合ビルです。。
+                                </p>
+                                <p>
+                                    <a href="https://www.jr-odekake.net/eki/top?id=0610130" 
+                                            target="_blank" 
+                                            rel="noopener"
+                                    >【公式サイトはこちら】</a><br>
+                                    <a href="https://www.jr-odekake.net/eki/top?id=0610130" 
+                                        target="_blank" 
+                                        rel="noopener"
+                                    >https://www.jr-odekake.net/eki/top?id=0610130</a>
+                                </p>
+                                <button class="p-modal__closeButton js-modal-closer">
+                                    <img src="../../asset/image/icon_close.svg" alt="閉じる">
+                                </button>
+                            </div>
+                            <div class="p-modal__cover js-modal-cover"></div>
+                        </div>
+
+                        <!-- <div class="l-col__list">
+                            <img src="../../asset/image/access_07.jpg" alt="">
+                            <h4>スカイビル</h4>
+                            <button class="p-areaguide__detailButton js-modal-opener" data-target="modal2">詳しく見る</button>
+                        </div>
+                        <div id="modal02" class="p-modal js-modal-element">
                             <div class="p-modal__inner">
                                 <h4>スカイビル</h4>
                                 <img src="../../asset/image/access_07.jpg" alt="">
@@ -91,9 +150,9 @@
                         <div class="l-col__list">
                             <img src="../../asset/image/access_02.jpg" alt="">
                             <h4>大阪城</h4>
-                            <button class="p-areaguide__detailButton js-modal-opener">詳しく見る</button>
+                            <button class="p-areaguide__detailButton js-modal-opener" data-target="modal3">詳しく見る</button>
                         </div>
-                        <div class="p-modal js-modal-element">
+                        <div id="modal03" class="p-modal js-modal-element">
                             <div class="p-modal__inner">
                                 <h4>大阪城</h4>
                                 <img src="../../asset/image/access_02.jpg" alt="">
@@ -211,7 +270,7 @@
                                     <img src="../../asset/image/icon_close.svg" alt="閉じる">
                                 </button>
                             </div>
-                            <div class="p-modal__cover js-modal-cover"></div>
+                            <div class="p-modal__cover js-modal-cover"></div> -->
                         </div>
                     </div>
             </article>

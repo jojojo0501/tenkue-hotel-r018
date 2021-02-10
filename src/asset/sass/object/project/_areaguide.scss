@@ -105,28 +105,28 @@
 }
 
 .p-modal {
-  width: 100%;
+  display: none;
   height: 100%;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s;
+  // opacity: 0;
+  // visibility: hidden;
+  // transition: opacity 0.3s;
   
   img {
     margin-bottom: 15px;
   }
 
-  .is-show {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s;
-    overflow: scroll;
-    z-index: 100;
-  }
+  // .is-show {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   transition: opacity 0.3s;
+  //   overflow: scroll;
+  //   z-index: 100;
+  // }
 
   &__closeButton {
     width: 20px;
@@ -148,7 +148,7 @@
     padding: 30px 3%;
     background-color: #fff;
     position: relative;
-    z-index: 101;
+    z-index: 200;
 
     h4 {
       margin-bottom: 15px;
