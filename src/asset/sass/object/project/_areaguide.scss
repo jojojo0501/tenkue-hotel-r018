@@ -1,6 +1,25 @@
+// レスポンシブ
+
+// ブレークポイントの定義
+$breakpoints: (
+  'sm': 'screen and (max-width: 576px)',
+  'md': 'screen and (max-width: 1000px)',
+) !default;
+
+// 初期値はmd
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
 .p-areaguide {
   margin-top: 80px;
   padding-bottom: 150px;
+  @include mq('sm') {
+    padding-bottom: 75px;
+  }
+
   &__mv {
     width: 100%;
     height: 60vh;
@@ -12,23 +31,38 @@
 
   &__inner {
     padding-top:75px;
+    @include mq('sm') {
+      padding-top: 50px;
+    }
   }
 
   &__subtitle {
     font-size: 18px;
     text-align: center;
     margin-bottom: 30px;
+    @include mq('sm') {
+      margin-bottom: 20px;
+      font-size: 4.5vw;
+    }
   }
 
   &__text {
     margin-bottom: 60px;
     text-align: center;
+    @include mq('sm') {
+      margin-bottom: 30px;
+      // font-size: 4vw;
+    }
+    
   }
 
   &__map {
     width: 60%;
     margin: 0 auto 50px;
     display: block;
+    @include mq('sm') {
+      margin-bottom: 30px;
+    }
   }
 
   &__detailButton {
@@ -41,6 +75,9 @@
     position: relative;
     font-size: 14px;
     cursor: pointer;
+    @include mq('sm') {
+      font-size: 3.5vw;
+    }
 
     &::after {
       content: '';
@@ -75,6 +112,11 @@
   position: relative;
   font-size: 24px;
 
+  @include mq('sm') {
+    margin-bottom: 40px;
+    font-size: 6vw;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -91,18 +133,28 @@
   display: flex;
   margin-bottom: 50px;
   justify-content: space-between;
-  &__list {
-    width: 30%;
+  @include mq('sm') {
+    flex-wrap: wrap;
   }
+
+}
+
+.l-col__list {
+  width: 30%;
+  @include mq('sm') {
+    width: 100%;
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+
   h4 {
     text-align: center;
     margin-bottom: 10px;
   }
 }
 
-.l-col__list {
-  width: 30%;
-}
 
 .p-modal {
   display: none;
@@ -139,6 +191,18 @@
     background-color: #fff;
     position: relative;
     z-index: 200;
+    @include mq('sm') {
+      width: 95%;
+    }
+
+    p {
+      @include mq('sm') {
+        font-size: 4vw;
+        &:not(:first-child) {
+          margin-bottom: 15px;
+        }
+      }
+    }
 
     h4 {
       margin-bottom: 15px;
@@ -162,18 +226,3 @@
   }
 }
 
-@media screen and (max-width: 576px) {
-  .p-areaguide {
-    padding-bottom: 75px;
-    
-    &__inner {
-      padding-top: 50px;
-    }
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .p-areaguide {
-    padding-bottom: 80px;
-  }
-}
