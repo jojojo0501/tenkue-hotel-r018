@@ -1,21 +1,18 @@
-.open {
-  .l-nav__item {
-    transform: translateY(0px) scale(1) rotate(0deg); 
-    a {
-      color:#fff
-    }
-  }
-}
-
 .l-header{
   background-color: #fff;
   color: #fff;
   height:80px;
-  padding: 0 40px;
+  padding: 10px 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  &__logo {
+    width: auto;
+    height: 25px;
+  }
 }
+
 .l-nav__list{
   /* navの横並び */
   display: flex;
@@ -27,44 +24,115 @@
   letter-spacing: 0.1rem;
 }
 
+.open {
+  .l-nav__item {
+    transform: translateY(0px) scale(1) rotate(0deg); 
+    a {
+      color:#fff
+    }
+  }
+}
 
-@media screen and (max-width:1000px){
-/* ------------------ */
-/* humberger-menu */
-/* ------------------ */
+@media screen and (max-width: 800px){
+  /* ------------------ */
+  /* humberger-menu */
+  /* ------------------ */
+
 .l-header{
-    padding: 0 5%;
+  padding: 0 5%;
 }
-
-.l-nav__wrapper{
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
+.c-burger__btn{
+  display: block;
+  width: 39px;
+  height: 39px;
+  position: relative;
+  z-index: 3;
+  border:none;
 }
-.l-header__nav{
-  width: 100%;
-  height: 100%;
-  background-color:#1B1310;
-  z-index: 2;
-}
-.l-header__nav .l-nav__list{
+.p-bar{
+  width: 20px;
+  height: 1px;
   display: block;
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  // transform: translateY(0px) scale(1) rotate(0deg);
-  text-align: center;
+  transform: translateX(-50%);
+  background-color: #00478b;
+
+  &__top {
+    top: 10px;
+  }
+
+  &__mid{
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  &__bottom{
+    bottom: 10px;
+  }
+}
+
+.p-bar
+.c-burger__btn.close .p-bar__top{
+  transform: translate(-50%,10px) rotate(45deg);
+  transition: transform .3s;
+}
+.c-burger__btn.close .p-bar__mid{
+  opacity: 0;
+  transition: opacity .3s;
+}
+.c-burger__btn.close .p-bar__bottom{
+  transform: translate(-50%,-8px) rotate(-45deg);
+  transition: transform .3s;
+}
+} 
+
+@media screen and (max-width:1000px){
+  /* ------------------ */
+  /* humberger-menu */
+  /* ------------------ */
+  .l-header{
+      padding: 0 5%;
+  }
+  
+  .l-nav__wrapper{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .l-header__nav{
+    width: 100%;
+    height: 100%;
+    background-color:#1B1310;
+    z-index: 2;
+  }
+  .l-header__nav .l-nav__list{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    // transform: translateY(0px) scale(1) rotate(0deg);
+    text-align: center;
+  }
+  
+  
+  .l-header__nav .l-nav__item{
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .c-burger__btn {
+    display: none;
+  }
 }
 
 
-.l-header__nav .l-nav__item{
-  margin-right: 0;
-  margin-bottom: 40px;
-}
-}
+
 
