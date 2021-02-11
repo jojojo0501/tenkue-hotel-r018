@@ -18,8 +18,8 @@ $breakpoint:(
 .p-access {
   box-sizing: border-box;
   font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
-  letter-spacing: 2px;
-  
+  margin:80px auto;
+
   //-----------共通部分------------------//
   //-----------トップ画像------------------//
   &__top-img {
@@ -29,7 +29,6 @@ $breakpoint:(
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin:7% 0;
   }
   //-----------トップ画像------------------//
   //-----------コンテンツ------------------//
@@ -51,11 +50,16 @@ $breakpoint:(
   &__ImageList {
     display:flex;
     flex-wrap: wrap;
-
+    margin-bottom: 50px;
+    justify-content: space-between;
+    
     img {
+      justify-content: space-between;
       width: 24%;
-      margin-left: 1%;
-      margin-bottom: 1%;
+      &:nth-child(n+5){
+        margin-top: 10px;
+      }
+    
     }
   }
 
@@ -63,13 +67,14 @@ $breakpoint:(
       position: relative;
       text-align: center;
       font-size: 24px;
+      letter-spacing: 2px;
       margin-top: 50px;
       margin-bottom: 50px;
       &:after {
         content: '';
         display: block;
         width: 40px;
-        height: 3px;
+        height: 2px;
         background:#00478b;
         position: absolute;
         bottom: -5px;
@@ -77,7 +82,7 @@ $breakpoint:(
         transform: translateX(-50%); 
       }
       @include mq('m'){
-        font-size: 28px;
+        font-size: 22px;
       }
       @include mq('s'){
         font-size: 30px;
