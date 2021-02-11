@@ -112,21 +112,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  // opacity: 0;
-  // visibility: hidden;
-  // transition: opacity 0.3s;
+  z-index: 102;
   
   img {
     margin-bottom: 15px;
   }
-
-  // .is-show {
-  //   opacity: 1;
-  //   visibility: visible;
-  //   transition: opacity 0.3s;
-  //   overflow: scroll;
-  //   z-index: 100;
-  // }
 
   &__closeButton {
     width: 20px;
@@ -172,6 +162,18 @@
   }
 }
 
-body.is-modal-hidden {
-  overflow: hidden;
+@media screen and (max-width: 576px) {
+  .p-areaguide {
+    padding-bottom: 75px;
+    
+    &__inner {
+      padding-top: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .p-areaguide {
+    padding-bottom: 80px;
+  }
 }
