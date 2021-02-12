@@ -1,3 +1,18 @@
+// レスポンシブ
+
+// ブレークポイントの定義
+$breakpoints: (
+  'sm': 'screen and (max-width: 576px)',
+  'md': 'screen and (max-width: 1000px)',
+) !default;
+
+// 初期値はmd
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
 .l-footer {
   background-color: #00478b;
   color: #fff;
@@ -12,9 +27,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include mq('sm') {
+      flex-direction: column;
+    }
   }
+
+  &__item {
+    @include mq('sm') {
+      width: 100%;
+      &:nth-of-type(1) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
   li {
-   list-style: none;
+    list-style: none;
   }
 
   &__logo {
@@ -22,19 +50,48 @@
       width: auto;
       height: 20px;
     }
+    @include mq('sm') {
+      font-size: 6vw;
+    }
+    @include mq('md') {
+      font-size: 3vw;
+    }
   }
 
   &__nav {
     display: flex;
+    @include mq('sm') {
+      flex-wrap: wrap;
+    }
   }
 
   a {
     color: #fff;
+    @include mq('sm') {
+      font-size: 4vw;
+    }
+    @include mq('md') {
+      font-size: 2vw;
+    }
   }
 
-  &__nav__item:not(:first-child) {
-    margin-left: 1.5rem;
+  &__nav__item {
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+    @include mq('sm') {
+      width: 50%;
+      &:not(:first-child) {
+        margin-left: 0;
+      }
+    }
+    @include mq('md') {
+      &:not(:first-child) {
+        margin-left: 1.5rem;
+      }
   }
+}
+
 
   &__nav__link {
     letter-spacing: 0.1rem;
@@ -44,49 +101,4 @@
     display: block;
     text-align: center;
   }
-  
-  @media screen and (max-width:576px) {
-    &__container {
-      flex-direction: column;
-    }
-  
-    &__item {
-      width: 100%;
-    }
-
-    &__item:nth-of-type(1) {
-      margin-bottom: 1rem;
-    }
-
-    &__logo {
-      font-size: 6vw;
-    }
-
-    &__nav {
-      flex-wrap: wrap;
-    }
-
-    &__nav__item {
-      width: 50%;
-    }
-
-    a {
-      font-size: 4vw;
-    }
-
-    &__nav__item:not(:first-child) {
-      margin-left: 0;
-    }
 }
-
-@media screen and (max-width: 1000px) {
-  &__logo {
-    font-size: 3vw;
-  }
-
-  a {
-    font-size: 2vw;
-  }
-}
-}
-
