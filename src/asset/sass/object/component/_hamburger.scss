@@ -1,5 +1,76 @@
-.c-hamburger {
+// レスポンシブ
+
+// ブレークポイントの定義
+$breakpoints: (
+  'sm': 'screen and (max-width: 576px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (min-width: 1001px)',
+) !default;
+
+// 初期値はmd
+@mixin mq($breakpoint: xl) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
 }
+
+.c-burger__btn{
+  display: none;
+  @include mq('lg') {
+    display: block;
+    width: 39px;
+    height: 39px;
+    position: relative;
+    z-index: 3;
+    border:none;
+  }
+}
+
+.p-bar{
+  @include mq('lg') {
+    width: 20px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00478b;
+  
+    &__top {
+      top: 10px;
+    }
+  
+    &__mid{
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  
+    &__bottom{
+      bottom: 10px;
+    }
+  }
+}
+
+.p-bar
+.c-burger__btn.close .p-bar__top{
+  @include mq('lg') {
+    transform: translate(-50%,10px) rotate(45deg);
+    transition: transform .3s;
+  }
+}
+.c-burger__btn.close .p-bar__mid{
+  @include mq('lg') {
+    opacity: 0;
+    transition: opacity .3s;
+  }
+}
+.c-burger__btn.close .p-bar__bottom{
+  @include mq('lg') {
+    transform: translate(-50%,-8px) rotate(-45deg);
+    transition: transform .3s;
+  }
+}
+
 
 .open {
   .c-burger__btn .p-bar__top{
@@ -20,5 +91,4 @@
 
 .c-burger__btn{
   display: none;
-  }
-
+}

@@ -1,3 +1,19 @@
+// レスポンシブ
+
+// ブレークポイントの定義
+$breakpoints: (
+  'sm': 'screen and (max-width: 576px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (min-width: 1001px)',
+) !default;
+
+// 初期値はmd
+@mixin mq($breakpoint: xl) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
 .l-header{
   background-color: #fff;
   color: #fff;
@@ -11,17 +27,71 @@
     width: auto;
     height: 25px;
   }
+
+  &__nav {
+    @include mq('lg') {
+      width: 100%;
+      height: 100%;
+      background-color:#1B1310;
+      z-index: 2;
+    }
+  }
+}
+
+.l-nav__wrapper{
+  @include mq('lg') {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 }
 
 .l-nav__list{
   /* navの横並び */
   display: flex;
+  align-items: center;
 }
 
 .l-nav__item{
   /* メニューの右側に余白 */
-  margin-right: 50px;
   letter-spacing: 0.1rem;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.l-nav__link {
+  padding: 0.2rem 1rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  position: relative;
+  display: block;
+  transition: .3s;
+}
+
+
+
+.l-header__nav .l-nav__list{
+  @include mq('lg') {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    // transform: translateY(0px) scale(1) rotate(0deg);
+    text-align: center;
+  }
+}
+
+.l-header__nav .l-nav__item{
+  @include mq('lg') {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
 }
 
 .open {
@@ -33,99 +103,6 @@
   }
 }
 
-@media screen and (max-width: 800px){
-  /* ------------------ */
-  /* humberger-menu */
-  /* ------------------ */
-
-.l-header{
-  padding: 0 5%;
-}
-.c-burger__btn{
-  display: block;
-  width: 39px;
-  height: 39px;
-  position: relative;
-  z-index: 3;
-  border:none;
-}
-.p-bar{
-  width: 20px;
-  height: 1px;
-  display: block;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #00478b;
-
-  &__top {
-    top: 10px;
-  }
-
-  &__mid{
-    top: 50%;
-    transform: translate(-50%,-50%);
-  }
-
-  &__bottom{
-    bottom: 10px;
-  }
-}
-
-.p-bar
-.c-burger__btn.close .p-bar__top{
-  transform: translate(-50%,10px) rotate(45deg);
-  transition: transform .3s;
-}
-.c-burger__btn.close .p-bar__mid{
-  opacity: 0;
-  transition: opacity .3s;
-}
-.c-burger__btn.close .p-bar__bottom{
-  transform: translate(-50%,-8px) rotate(-45deg);
-  transition: transform .3s;
-}
-} 
-
-@media screen and (max-width:1000px){
-  /* ------------------ */
-  /* humberger-menu */
-  /* ------------------ */
-  .l-header{
-      padding: 0 5%;
-  }
-  
-  .l-nav__wrapper{
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-  }
-  .l-header__nav{
-    width: 100%;
-    height: 100%;
-    background-color:#1B1310;
-    z-index: 2;
-  }
-  .l-header__nav .l-nav__list{
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    // transform: translateY(0px) scale(1) rotate(0deg);
-    text-align: center;
-  }
-  
-  
-  .l-header__nav .l-nav__item{
-    margin-right: 0;
-    margin-bottom: 40px;
-  }
-}
 
 @media screen and (min-width: 1001px) {
   .c-burger__btn {
