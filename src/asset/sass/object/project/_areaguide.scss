@@ -26,6 +26,7 @@ $breakpoints: (
     background-image: url(../../../../asset/image/areaguide_01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     margin-top: 80px;
 }
 
@@ -51,7 +52,6 @@ $breakpoints: (
     text-align: center;
     @include mq('sm') {
       margin-bottom: 30px;
-      // font-size: 4vw;
     }
     
   }
