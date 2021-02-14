@@ -1,8 +1,7 @@
 // レスポンシブ
 
 // ブレークポイントの定義
-$breakpoints: (
-  'sm': 'screen and (max-width: 576px)',
+$breakpoints: ('sm': 'screen and (max-width: 576px)',
   'lg': 'screen and (max-width: 1000px)',
   'xl': 'screen and (min-width: 1001px)',
 ) !default;
@@ -14,81 +13,135 @@ $breakpoints: (
   }
 }
 
-.c-burger__btn{
+.c-burger__btn {
   display: none;
+
   @include mq('lg') {
     display: block;
-    width: 39px;
-    height: 39px;
+    width: 48px;
+    height: 48px;
     position: relative;
     z-index: 3;
-    border:none;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
   }
 }
 
-.p-bar{
+.p-bar {
   @include mq('lg') {
-    width: 20px;
-    height: 1px;
-    display: block;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 5px;
+    margin: auto;
+    width: 20px;
+    height: 2px;
     background-color: #00478b;
-  
-    &__top {
-      top: 10px;
+    transition: ease-in .3s;
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -5px;
+      height: 2px;
+      width: 25px;
+      background-color: #00478b;
+      transition: ease-in .3s;
+
     }
-  
-    &__mid{
-      top: 50%;
-      transform: translate(-50%,-50%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      width: 15px;
+      height: 2px;
+      background-color: #00478b;
+      transition: ease-in .3s;
+
+
     }
-  
-    &__bottom{
-      bottom: 10px;
-    }
+
+
   }
 }
 
-.p-bar
-.c-burger__btn.close .p-bar__top{
-  @include mq('lg') {
-    transform: translate(-50%,10px) rotate(45deg);
-    transition: transform .3s;
-  }
-}
-.c-burger__btn.close .p-bar__mid{
-  @include mq('lg') {
-    opacity: 0;
-    transition: opacity .3s;
-  }
-}
-.c-burger__btn.close .p-bar__bottom{
-  @include mq('lg') {
-    transform: translate(-50%,-8px) rotate(-45deg);
-    transition: transform .3s;
-  }
-}
+// .p-bar
+// .c-burger__btn.close .p-bar__top{
+//   @include mq('lg') {
+//     transform: translate(-50%,10px) rotate(45deg);
+//     transition: transform .3s;
+//   }
+// }
+// .c-burger__btn.close .p-bar__mid{
+//   @include mq('lg') {
+//     opacity: 0;
+//     transition: opacity .3s;
+//   }
+// }
+// .c-burger__btn.close .p-bar__bottom{
+//   @include mq('lg') {
+//     transform: translate(-50%,-8px) rotate(-45deg);
+//     transition: transform .3s;
+//   }
+// }
 
 
 .open {
-  .c-burger__btn .p-bar__top{
-    transform: translate(-50%,10px) rotate(45deg);
-    transition: transform .3s;
-    background-color: #fff;
+  button {
+    background-color: transparent;
+    transition: ease-in .3s;
   }
-  .c-burger__btn .p-bar__mid{
-    opacity: 0;
-    transition: opacity .3s;
+
+  .p-bar {
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    transition: ease-in .3s;
+
+
+    &::before {
+      top: 0;
+      left: 0;
+      transform: rotate(45deg);
+      width: 20px;
+      transition: ease-in .3s;
+      background-color: #fff;
+
+    }
+
+    &::after {
+      top: 0;
+      left: 0;
+      transform: rotate(-45deg);
+      width: 20px;
+      transition: ease-in .3s;
+      background-color: #fff;
+
+    }
   }
-  .c-burger__btn .p-bar__bottom{
-    transform: translate(-50%,-8px) rotate(-45deg);
-    transition: transform .3s;
-    background-color: #fff;
-  }
+
+  // .c-burger__btn .p-bar__top{
+  //   transform: translate(-50%,10px) rotate(45deg);
+  //   transition: transform .3s;
+  //   background-color: #fff;
+  // }
+  // .c-burger__btn .p-bar__mid{
+  //   opacity: 0;
+  //   transition: opacity .3s;
+  // }
+  // .c-burger__btn .p-bar__bottom{
+  //   transform: translate(-50%,-8px) rotate(-45deg);
+  //   transition: transform .3s;
+  //   background-color: #fff;
+  // }
 }
 
-.c-burger__btn{
+.c-burger__btn {
   display: none;
 }

@@ -1,4 +1,4 @@
 $('.c-burger__btn').on('click',function(){
-$('body').toggleClass('open');
-$('.l-nav__wrapper').fadeToggle(500);
+  $('.l-nav__wrapper').fadeToggle(700);
+  $('body').toggleClass('open');
 });
