@@ -35,6 +35,7 @@ $breakpoints: (
     @include mq('sm') {
       padding-top: 50px;
     }
+    
   }
 
   &__subtitle {
@@ -45,6 +46,9 @@ $breakpoints: (
       margin-bottom: 20px;
       font-size: 4.5vw;
     }
+    @include mq('md') {
+      font-size: 2.25vw;
+    }
   }
 
   &__text {
@@ -52,6 +56,9 @@ $breakpoints: (
     text-align: center;
     @include mq('sm') {
       margin-bottom: 30px;
+    }
+    @include mq('md') {
+      font-size: 2vw;
     }
     
   }
@@ -70,7 +77,7 @@ $breakpoints: (
     margin: 0 auto;
     color: #fff;
     background-color: #00478B;
-    padding: 0.7rem 3em;
+    padding: 0.7em 3em;
     border: none;
     position: relative;
     font-size: 14px;
@@ -78,14 +85,17 @@ $breakpoints: (
     @include mq('sm') {
       font-size: 3.5vw;
     }
+    @include mq('md') {
+      font-size: 1.75vw;
+    }
 
     &::after {
       content: '';
       background-image: url(../../../../asset/image/icon_arrow_right.svg);
-      width: 0.8rem;
-      height: 0.8rem;
+      width: 0.8em;
+      height: 0.8em;
       position: absolute;
-      top: 20px;
+      top: 48%;
       right: 3%;
       transform: translateY(-50%);
       background-position: center;
@@ -111,11 +121,14 @@ $breakpoints: (
   letter-spacing: 2px;
   position: relative;
   font-size: 24px;
-
   @include mq('sm') {
     margin-bottom: 40px;
     font-size: 6vw;
   }
+  @include mq('md') {
+    font-size: 3vw;
+  }
+
 
   &::after {
     content: '';
@@ -201,6 +214,19 @@ $breakpoints: (
         &:not(:first-child) {
           margin-bottom: 15px;
         }
+      }
+      @include mq('md') {
+        font-size: 2vw;
+        &:not(:first-child) {
+          margin-bottom: 15px;
+        }
+      }
+
+    }
+    
+    a {
+      @include mq('md') {
+        font-size: 2vw;
       }
     }
 
