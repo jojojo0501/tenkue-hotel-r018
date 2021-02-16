@@ -78,7 +78,7 @@ $breakpoints: ( //キー　　値
         background-repeat: no-repeat;
       }
 
-      &.open {
+      &.is-open {
         border-bottom: none;
 
         &::after {
@@ -106,8 +106,9 @@ $breakpoints: ( //キー　　値
   transition: 0.3s;
   opacity: 0;
 
-  &.open {
+  &.is-open {
     opacity: 1;
+
   }
 }
 
@@ -123,7 +124,7 @@ $breakpoints: ( //キー　　値
     padding-left: 2.5em;
   }
 
-  &.open {
+  &.is-open {
     height: auto;
     padding: 0.5em 2em 1.5em 4.5em;
     margin-bottom: 4em;
