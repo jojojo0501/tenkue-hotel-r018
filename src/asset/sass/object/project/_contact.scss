@@ -14,22 +14,22 @@ $breakpoints: ( //キー　　値
   }
 }
 
-p {
-  @include mq(md) {
-    font-size: 2vw;
-  }
-
-  @include mq(sm) {
-    font-size: 4vw;
-  }
-}
-
 .p-contact {
   margin-top: 80px;
   padding-bottom: 150px;
 
   @include mq(md) {
     padding-bottom: 80px;
+  }
+
+  p {
+    @include mq(md) {
+      font-size: 2vw;
+    }
+
+    @include mq(sm) {
+      font-size: 4vw;
+    }
   }
 
   .p-contact__mainVisual {
