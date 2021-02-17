@@ -1,25 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
 
-        <%- include('../_includes/_common.ejs') %> 
+<head>
+
+    <%- include('../_includes/_common.ejs') %>
 
         <title>Tenkue Hotel</title>
 
-    </head>
+</head>
+
 </html>
 
-    <body>
-        <%- include('../_includes/_header') %>
+<body>
+    <%- include('../_includes/_header') %>
 
         <main>
             <article class="p-contact">
-                
+                <div class="p-contact__mainVisual">
+                </div>
+                <div class="p-contact__inner l-content-wrap-default">
+                    <h2 class="c-title">CONTACT</h2>
+                    <h3 class="p-contact__subtitle">ご不明な点がございましたら<br>お気軽に下記のフォームよりお問い合わせください。</h3>
+                    <p class="p-contact__text"> お問い合わせのご返答にはお時間をいただく場合がございます。<br> 当日・翌日のお問い合わせ、その他お急ぎの場合は、<br
+                            class="u-pc"> 恐れ入りますがお電話にてお問い合わせくださいますようお願いいたします。 </p>
+                    <div class="p-contact__form">
+                        <form action="" method="POST">
+                            <div class="p-contact__container">
+                                <label class="p-contact__label" for="list">お問い合わせ内容</label>
+                                <select class="p-contact__input" id="list" name="list">
+                                    <option value="lodging">宿泊について</option>
+                                    <option value="restaurant">レストランについて</option>
+                                    <option value="hotel">当ホテルについて</option>
+                                    <option value="others">その他</option>
+                                </select>
+                            </div>
+                            <div class="p-contact__container">
+                                <label class="p-contact__label" for="name">お名前</label>
+                                <input class="p-contact__input" id="name" type="text" name="yourname" placeholder="">
+                            </div>
+                            <div class="p-contact__container">
+
+                                <label class="p-contact__label" for="mail">お電話番号</label>
+                                <input class="p-contact__input" id="mail" type="tel" name="mail">
+                            </div>
+                            <div class="p-contact__container">
+
+                                <label class="p-contact__label" for="mail">メールアドレス</label>
+                                <input class="p-contact__input" id="mail" type="email" name="mail">
+                            </div>
+                            <div class="p-contact__container">
+
+                                <label class="p-contact__label" for="comment">お問い合わせ内容</label>
+                                <textarea class="p-contact__input p-contact__textarea" id="comment" name="comment"
+                                    rows="8"></textarea>
+                            </div>
+
+                            <!-- <div class="p-contact__notes"> -->
+                            <p class="p-contact__note">弊社の個人情報の取扱いについては<a href="#">プライバシーポリシー</a>をご覧ください。
+                            </p>
+
+                            <label class="p-contact__checkBox" for="privacyPolicy">
+                                <input id="privacyPolicy" type="checkbox" name="privacyPolicy" value="agree">
+                                プライバシーポリシーに同意します。</label>
+
+                            <!-- </div> -->
+                            <input class="p-contact__btn" type="submit" value="送信する">
+
+
+                        </form>
+                    </div>
             </article>
 
         </main>
 
         <%- include('../_includes/_footer.ejs') %>
 
-    </body>
+</body>
+
 </html>
