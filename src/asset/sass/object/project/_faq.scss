@@ -1,2 +1,158 @@
+//マップ型変数breakpointsを定義
+$breakpoints: ( //キー　　値
+  'sm': 'screen and (max-width: 576px)', //576px以下（スマホ）用の表示
+  'md': 'screen and (max-width: 1000px)' //1000px以下（タブレット・PC）用の表示
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+
+  //map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+
+
 .p-faq {
+  padding: 150px 0px;
+
+  @include mq(sm) {
+    padding: 150px 0 75px;
+  }
+
+  .p-faq__title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    background: #00478B;
+    margin: 0px 0px 50px;
+    padding: 0.2em 1em;
+  }
+
+  .p-faq__question {
+    color: #222222;
+    display: block;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+
+    .p-faq__questionLink {
+      color: #222;
+      display: block;
+      cursor: pointer;
+      padding: 0.5em 2em 0.5em 3em;
+      border-bottom: 2px solid rgba(0, 71, 139, 0.1);
+      position: relative;
+
+      &::before {
+        content: '';
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        // background-color: #444;
+        background-image: url(/asset/image/icon_question.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &::after {
+        content: '';
+        width: 1.2em;
+        height: 1.2em;
+        position: absolute;
+        top: 50%;
+        right: 0.5em;
+        transform: translateY(-50%);
+        background-image: url(/asset/image/icon_arrow_bottom.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &.is-open {
+        border-bottom: none;
+
+        &::after {
+          content: "";
+          width: 1.2em;
+          height: 1.2em;
+          position: absolute;
+          top: 50%;
+          right: 0.5em;
+          transform: translateY(-50%);
+          // background-image: url(/asset/image/icon_arrow_bottom.svg);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-image: url(/asset/image/icon_arrow_top.svg) !important;
+        }
+      }
+    }
+  }
+}
+
+.p-faq__answerMenu {
+  background: #fff;
+  display: none;
+  transition: 0.3s;
+  opacity: 0;
+
+  &.is-open {
+    opacity: 1;
+
+  }
+}
+
+.p-faq__answerItem {
+  height: 0;
+  display: none;
+  padding: 0 2em 0 4.5em;
+  opacity: 0;
+  position: relative;
+  transition: all 0.3s;
+
+  @include mq(sm) {
+    padding-left: 2.5em;
+  }
+
+  &.is-open {
+    height: auto;
+    padding: 0.5em 2em 1.5em 4.5em;
+    margin-bottom: 4em;
+    border-bottom: 2px solid rgba(0, 71, 139, 0.1);
+    position: relative;
+    opacity: 1;
+
+    @include mq(sm) {
+      padding-left: 2.5em;
+    }
+  }
+
+  &::before {
+    content: '';
+    width: 1.8em;
+    height: 1.8em;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    transform: translateY(-50%);
+    // background-color: #444;
+    background-image: url(/asset/image/icon_answer.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include mq(sm) {
+      left: 0; //スマホの時だけ高さを60pxに！
+    }
+  }
 }
