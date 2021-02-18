@@ -65,16 +65,6 @@ $breakpoints: (
     }
   }
 
-  a {
-    color: #fff;
-    @include mq('sm') {
-      font-size: 4vw;
-    }
-    @include mq('md') {
-      font-size: 2vw;
-    }
-  }
-
   &__nav__item {
     &:not(:first-child) {
       margin-left: 2rem;
@@ -92,9 +82,17 @@ $breakpoints: (
   }
 }
 
-
   &__nav__link {
     letter-spacing: 0.1rem;
+    a {
+      color: #fff;
+      @include mq('sm') {
+        font-size: 4vw;
+      }
+      @include mq('md') {
+        font-size: 2vw;
+      }
+    }
   }
 
   &__copyright {
