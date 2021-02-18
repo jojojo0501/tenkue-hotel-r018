@@ -1,2 +1,255 @@
-.p-areaguide {
+// レスポンシブ
+
+// ブレークポイントの定義
+$breakpoints: (
+  'sm': 'screen and (max-width: 576px)',
+  'md': 'screen and (max-width: 1000px)',
+) !default;
+
+// 初期値はmd
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
 }
+
+.p-areaguide {
+  margin-top: 80px;
+  padding-bottom: 150px;
+  @include mq('sm') {
+    padding-bottom: 75px;
+  }
+
+  &__mv {
+    width: 100%;
+    height: 60vh;
+    background-image: url(../../../../asset/image/areaguide_01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+}
+
+  &__inner {
+    padding-top:75px;
+    @include mq('sm') {
+      padding-top: 50px;
+    }
+    
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+    @include mq('sm') {
+      margin-bottom: 20px;
+      font-size: 4.5vw;
+    }
+    @include mq('md') {
+      font-size: 2.25vw;
+    }
+  }
+
+  &__text {
+    margin-bottom: 60px;
+    text-align: center;
+    @include mq('sm') {
+      margin-bottom: 30px;
+    }
+    @include mq('md') {
+      font-size: 2vw;
+    }
+    
+  }
+
+  &__map {
+    width: 60%;
+    margin: 0 auto 50px;
+    display: block;
+    @include mq('sm') {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__detailButton {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #00478B;
+    padding: 0.7em 3em;
+    border: none;
+    position: relative;
+    font-size: 14px;
+    cursor: pointer;
+    @include mq('sm') {
+      font-size: 3.5vw;
+    }
+    @include mq('md') {
+      font-size: 1.75vw;
+    }
+
+    &::after {
+      content: '';
+      background-image: url(../../../../asset/image/icon_arrow_right.svg);
+      width: 0.8em;
+      height: 0.8em;
+      position: absolute;
+      top: 48%;
+      right: 3%;
+      transform: translateY(-50%);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.l-contact-wrap-default {
+  position: relative;
+  max-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: content-box !important;
+  padding-right: 2.4% !important;
+  padding-left: 2.4% !important;
+}
+
+.c-title {
+  margin-bottom: 60px;
+  text-align: center;
+  letter-spacing: 2px;
+  position: relative;
+  font-size: 24px;
+  @include mq('sm') {
+    margin-bottom: 40px;
+    font-size: 6vw;
+  }
+  @include mq('md') {
+    font-size: 3vw;
+  }
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    border: 1px solid #00478b;
+    border-radius: 1px;
+    width: 40px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.l-col3 {
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  @include mq('sm') {
+    flex-wrap: wrap;
+  }
+
+}
+
+.l-col__list {
+  width: 30%;
+  @include mq('sm') {
+    width: 100%;
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+
+  h4 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+
+.p-modal {
+  display: none;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 102;
+  
+  img {
+    margin-bottom: 15px;
+  }
+
+  &__closeButton {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__inner {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    margin: 10vh auto;
+    padding: 30px 3%;
+    background-color: #fff;
+    position: relative;
+    z-index: 200;
+    @include mq('sm') {
+      width: 95%;
+    }
+
+    p {
+      @include mq('sm') {
+        font-size: 4vw;
+        &:not(:first-child) {
+          margin-bottom: 15px;
+        }
+      }
+      @include mq('md') {
+        font-size: 2vw;
+        &:not(:first-child) {
+          margin-bottom: 15px;
+        }
+      }
+
+    }
+    
+    a {
+      @include mq('md') {
+        font-size: 2vw;
+      }
+    }
+
+    h4 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    img {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__cover {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(34,34,34,.8);
+    z-index: 100;
+  }
+}
+
