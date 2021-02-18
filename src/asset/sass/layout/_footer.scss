@@ -69,6 +69,15 @@ $breakpoints: (
     &:not(:first-child) {
       margin-left: 2rem;
     }
+    a {
+      color: #fff;
+      @include mq('sm') {
+        font-size: 4vw;
+      }
+      @include mq('md') {
+        font-size: 2vw;
+      }
+    }
     @include mq('sm') {
       width: 50%;
       &:not(:first-child) {
@@ -79,24 +88,18 @@ $breakpoints: (
       &:not(:first-child) {
         margin-left: 1.5rem;
       }
-  }
-}
-
-  &__nav__link {
-    letter-spacing: 0.1rem;
-    a {
-      color: #fff;
-      @include mq('sm') {
-        font-size: 4vw;
-      }
-      @include mq('md') {
-        font-size: 2vw;
-      }
     }
   }
-
+  
+  &__nav__link {
+    letter-spacing: 0.1rem;
+  }
+  
   &__copyright {
     display: block;
     text-align: center;
+    a {
+      color: #fff;
+    }
   }
 }
