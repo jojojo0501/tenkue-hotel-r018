@@ -61,31 +61,53 @@ $breakpoints: (
   /* navの横並び */
   display: flex;
   align-items: center;
+  @include mq('lg') {
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
 }
+
 
 .l-nav__item{
   /* メニューの右側に余白 */
   opacity: 0;
   letter-spacing: 0.1rem;
-  transform: translateY(100px) scale(0.6) rotate(20deg);
-  transition-duration: 0.5s;
-  &:nth-child(1){
-    transition-delay: 0.6s;
+  margin-right: 0;
+  margin-bottom: 1.6rem;
+  @include mq('lg') {
+    transform: translateY(100px) scale(0.6) rotate(20deg);
+    transition-duration: 0.5s;
+    &:nth-child(1){
+      transition-delay: 0.6s;
+    }
+    &:nth-child(2){
+      transition-delay: 0.45s;
+    }
+    &:nth-child(3){
+      transition-delay: 0.3s;
+    }
+    &:nth-child(4){
+      transition-delay: 0.15s;
+    }
+    &:nth-child(5){
+      transition-delay: 0s;
+      &:nth-child(5){
+        margin-bottom: 0px;
+    }
   }
-  &:nth-child(2){
-    transition-delay: 0.45s;
-  }
-  &:nth-child(3){
-    transition-delay: 0.3s;
-  }
-  &:nth-child(4){
-    transition-delay: 0.15s;
-  }
-  &:nth-child(5){
-    transition-delay: 0s;
-  }
-
 }
+}
+
+
+
+
+
 
 .l-nav__link {
   padding: 0.2em 1em;
@@ -101,62 +123,41 @@ $breakpoints: (
 
 
 
-.l-nav__list{
-  @include mq('lg') {
-    display: block;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-}
 
-.l-nav__item{
-  @include mq('lg') {
-    margin-right: 0;
-    margin-bottom: 1.6rem;
-    &:nth-child(5){
-      margin-bottom: 0px;
 
-    }
-  }
-}
+
 
 .open {
-  .l-nav__item {
-    transform: translateY(0px) scale(1) rotate(0deg); 
-    opacity: 1;
-  transition-duration: 0.5s;
-  &:nth-child(1){
-    transition-delay: 0s;
-  }
-  &:nth-child(2){
-    transition-delay: 0.15s;
-  }
-  &:nth-child(3){
-    transition-delay: 0.3s;
-  }
-  &:nth-child(4){
-    transition-delay: 0.45s;
-  }
-  &:nth-child(5){
-    transition-delay: 0.6s;
-  }
-
-  
-  a {
-    color:#fff;
-    &:hover{
-      background-color: rgba(155, 155, 155, 0.2);
+  @include mq('lg') {
+    .l-nav__item {
+      transform: translateY(0px) scale(1) rotate(0deg); 
+      opacity: 1;
+    transition-duration: 0.5s;
+    &:nth-child(1){
+      transition-delay: 0s;
     }
-
+    &:nth-child(2){
+      transition-delay: 0.15s;
+    }
+    &:nth-child(3){
+      transition-delay: 0.3s;
+    }
+    &:nth-child(4){
+      transition-delay: 0.45s;
+    }
+    &:nth-child(5){
+      transition-delay: 0.6s;
+    }
+    
+    a {
+      color:#fff;
+      &:hover{
+        background-color: rgba(155, 155, 155, 0.2);
+      }
+      }
     }
   }
 }
-
 
 @media screen and (min-width: 1001px) {
   .c-burger__btn {

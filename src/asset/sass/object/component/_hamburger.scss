@@ -6,7 +6,7 @@ $breakpoints: ('sm': 'screen and (max-width: 576px)',
   'xl': 'screen and (min-width: 1001px)',
 ) !default;
 
-// 初期値はmd
+// 初期値はxl
 @mixin mq($breakpoint: xl) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
