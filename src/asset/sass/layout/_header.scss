@@ -7,7 +7,7 @@ $breakpoints: (
   'xl': 'screen and (min-width: 1001px)',
 ) !default;
 
-// 初期値はmd
+// 初期値はxl
 @mixin mq($breakpoint: xl) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
@@ -37,19 +37,18 @@ $breakpoints: (
     @include mq('lg') {
       width: 100%;
       height: 100%;
-
-  }
       background-color:#222;
       z-index: 2;
     }
   }
+}
 
 
 .l-nav__wrapper{
   @include mq('lg') {
     display: none;
     width: 100vw;
-    height: 120vh;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -61,10 +60,11 @@ $breakpoints: (
   /* navの横並び */
   display: flex;
   align-items: center;
+
   @include mq('lg') {
     display: block;
     position: absolute;
-    top: 35%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
@@ -76,11 +76,20 @@ $breakpoints: (
 
 .l-nav__item{
   /* メニューの右側に余白 */
-  opacity: 0;
-  letter-spacing: 0.1rem;
-  margin-right: 0;
-  margin-bottom: 1.6rem;
+  @include mq('xl') {
+    letter-spacing: 0.1rem;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+    a {
+      font-size: 16px;
+    }
+  }
   @include mq('lg') {
+    opacity: 0;
+    letter-spacing: 0.1rem;
+    margin-right: 0;
+    margin-bottom: 1.6rem;
     transform: translateY(100px) scale(0.6) rotate(20deg);
     transition-duration: 0.5s;
     &:nth-child(1){
@@ -99,9 +108,9 @@ $breakpoints: (
       transition-delay: 0s;
       &:nth-child(5){
         margin-bottom: 0px;
+      }
     }
   }
-}
 }
 
 
