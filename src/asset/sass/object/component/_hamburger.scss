@@ -1,109 +1,105 @@
 // レスポンシブ
 
 // ブレークポイントの定義
-$breakpoints: ('sm': 'screen and (max-width: 576px)',
-  'lg': 'screen and (max-width: 1000px)',
-  'xl': 'screen and (min-width: 1001px)',
-) !default;
+$breakpoints: (
+    sm: 'screen and (max-width: 576px)',
+    lg: 'screen and (max-width: 1000px)',
+    xl: 'screen and (min-width: 1001px)',
+);
 
 // 初期値はxl
-@mixin mq($breakpoint: xl) {
-  @media #{map-get($breakpoints, $breakpoint)} {
-    @content;
-  }
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
 }
 
 .c-burger__btn {
-  display: none;
+    display: none;
 
-  @include mq('lg') {
-    display: block;
-    width: 48px;
-    height: 48px;
-    position: relative;
-    z-index: 3;
-    border: none;
-    cursor: pointer;
-    background-color: #fff;
-  }
+    @include mq('lg') {
+        display: block;
+        width: 48px;
+        height: 48px;
+        position: relative;
+        z-index: 3;
+        border: none;
+        cursor: pointer;
+        background-color: #fff;
+    }
 }
 
 .p-bar {
-  @include mq('lg') {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 5px;
-    margin: auto;
-    width: 20px;
-    height: 2px;
-    background-color: #00478b;
-    transition: all 0.3s ease-in-out;
+    @include mq('lg') {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 5px;
+        margin: auto;
+        width: 20px;
+        height: 2px;
+        background-color: #00478b;
+        transition: all 0.3s ease-in-out;
 
+        &::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -5px;
+            height: 2px;
+            width: 25px;
+            background-color: #00478b;
+            transition: all 0.3s ease-in-out;
+        }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: -5px;
-      height: 2px;
-      width: 25px;
-      background-color: #00478b;
-      transition: all 0.3s ease-in-out;
-
+        &::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            width: 15px;
+            height: 2px;
+            background-color: #00478b;
+            transition: all 0.3s ease-in-out;
+        }
     }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 5px;
-      width: 15px;
-      height: 2px;
-      background-color: #00478b;
-      transition: all 0.3s ease-in-out;
-    }
-  }
 }
 
 .is-open {
-  overflow: hidden;
+    overflow: hidden;
 
-  button {
-    background-color: transparent;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .p-bar {
-    background-color: transparent;
-    top: 0;
-    left: 0;
-    transition: all 0.3s ease-in-out;
-
-
-    &::before {
-      top: 0;
-      left: 0;
-      transform: rotate(45deg);
-      width: 20px;
-      transition: all 0.3s ease-in-out;
-      background-color: #fff;
-
+    button {
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
     }
 
-    &::after {
-      top: 0;
-      left: 0;
-      transform: rotate(-45deg);
-      width: 20px;
-      transition: all 0.3s ease-in-out;
-      background-color: #fff;
+    .p-bar {
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
 
+        &::before {
+            top: 0;
+            left: 0;
+            transform: rotate(45deg);
+            width: 20px;
+            transition: all 0.3s ease-in-out;
+            background-color: #fff;
+        }
+
+        &::after {
+            top: 0;
+            left: 0;
+            transform: rotate(-45deg);
+            width: 20px;
+            transition: all 0.3s ease-in-out;
+            background-color: #fff;
+        }
     }
-  }
 }
 
 .c-burger__btn {
-  display: none;
+    display: none;
 }
