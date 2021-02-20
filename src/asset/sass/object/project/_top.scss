@@ -1,2 +1,195 @@
+//--------------------レスポンシブ対応------------------------//
+//ブレイクポイント
+$breakpoint:(
+  s:'screen and(max-width:576px)',
+  m:'screen and(max-width:1000px)'
+  );
+  //mixin（レスポンシブ）
+@mixin mq($bp){
+  @media #{map-get($breakpoint,$bp)}{
+    @content;
+  }
+} 
+  //--------------------レスポンシブ対応------------------------//
 .p-top {
-}
+  //-------------共通部分___________________________________//
+  font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
+  box-sizing: border-box;
+  margin-top: 80px;
+  padding-bottom: 60px;
+  
+  &__container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    max-width: 1024px;
+    @include mq('m'){
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+    @include mq('s'){
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  }
+  
+  &__title {
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 5%;
+    @include mq('m'){
+      font-size: 4vw;
+    }
+    @include mq('s'){
+      font-size: 8vw;
+    }
+  }
+
+  &__text {
+    line-height: 2.5;
+    font-size: 16px;
+    text-align: center;
+    @include mq('m'){
+      font-size: 2vw;
+    }
+    @include mq('s'){
+      font-size: 4vw;
+    }
+  }
+
+  &__button {
+    display: block;
+    margin:20px auto 30px auto;
+    max-width: 400px;
+    padding: 0.6em 0.2em;
+    color: white;
+    text-align: center;
+    background-color: #00478B;
+
+    &:nth-child(1) {
+      margin-top: 20px;
+    }
+  }
+  //-------------共通部分___________________________________//
+  //-------------トップページスライダー-------------------------//
+  &__slider {
+    position: relative;
+    height: calc(70vh - 80px);
+    margin-bottom: 5%;
+    
+    &__item {
+      position: absolute;
+      display: none;
+      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+  //-------------トップページスライダー-------------------------//
+  //-------------エリアガイドー-------------------------------//
+  &--background-yellow {
+    background: #fffff9;
+  }
+
+  &__areaguide{
+    display: flex;
+    @include mq('s'){
+      display: block;
+    }
+
+  &__list {
+    width: 50%;
+    @include mq('s'){
+      width: 100%;
+    }
+
+    > img { width: 90%;
+      @include mq('s'){
+        width: 100%;
+      }
+    }
+  }
+
+  &__img {
+    display: inline-flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    img {
+      width: 23%;
+      }
+    }
+  }
+
+  //-------------エリアガイドー------------------------------//
+  //-------------ルームーーー------------------------------//
+  &__room {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    @include mq('s'){
+      display: block;
+    }
+    
+    &__item {
+      width: 30%;
+      @include mq('s'){
+        width: 100%;
+      }
+      
+      h3 {
+        font-size: 1.1em;
+        @include mq('s'){
+          font-size: 1.4em;
+        }
+      }
+      
+      .p-top__text {
+        @include mq('s'){
+          text-align: left;
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+  
+  //-------------ルームーーー------------------------------//
+  //-------------アクセスーー------------------------------//
+  &__access {
+    display: flex;
+    @include mq('s'){
+      display: block;
+    }
+    
+    &__map {
+      width: 45%;
+      @include mq('s'){
+        width: 100%;
+      }
+      
+      iframe {
+        width: 100%;
+      }
+    }
+    
+    &__text {
+      width: 45%;
+      margin-left: 8%;
+      @include mq('s'){
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+  //-------------アクセスーー------------------------------//
+}  

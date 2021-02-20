@@ -1,2 +1,104 @@
-.p-access {
+// -----------レスポンシブ対応---------------//
+//-----------------ブレイクポイント-----------//
+$breakpoint:(
+  s:'screen and(max-width:576px)',
+  m:'screen and(max-width:1000px)'
+  );
+  //-----------------ブレイクポイント-----------//
+  //-----------メディアクエリ-------------------//
+@mixin mq($bp) {
+  @media #{map-get($breakpoint,$bp)}{
+    @content;
+  }
 }
+  //-----------メディアクエリ-------------------//
+// -----------レスポンシブ対応---------------//
+
+//-----------共通部分------------------//
+.p-access {
+  box-sizing: border-box;
+  font-family: 'Vollkorn', 'Noto Serif JP', sans-serif;
+  margin:80px auto;
+
+  //-----------共通部分------------------//
+  //-----------トップ画像------------------//
+  &__top-img {
+    width: 100%;
+    height: 60vh;
+    background-image: url(../../asset/image/access_01.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  //-----------トップ画像------------------//
+  //-----------コンテンツ------------------//
+  &__contents {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15%;
+    max-width: 1024px;
+    @include mq('m'){
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+    @include mq('s'){
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  }
+
+  &__ImageList {
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    justify-content: space-between;
+    
+    img {
+      justify-content: space-between;
+      width: 24%;
+      &:nth-child(n+5){
+        margin-top: 10px;
+      }
+    
+    }
+  }
+
+    &__title {
+      position: relative;
+      text-align: center;
+      font-size: 24px;
+      letter-spacing: 2px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      &:after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        background:#00478b;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%); 
+      }
+      @include mq('m'){
+        font-size: 22px;
+      }
+      @include mq('s'){
+        font-size: 30px;
+      }
+    }
+
+    &__text {
+      text-align: center;
+      @include mq('m'){
+        font-size: 2vw;
+      }
+      @include mq('s'){
+        font-size: 4vw;
+      }
+    }
+  }
+  //-----------コンテンツ------------------//
+
+
