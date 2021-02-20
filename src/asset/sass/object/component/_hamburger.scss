@@ -39,7 +39,7 @@ $breakpoints: ('sm': 'screen and (max-width: 576px)',
     width: 20px;
     height: 2px;
     background-color: #00478b;
-    transition: ease-in .3s;
+    transition: all 0.3s ease-in-out;
 
 
     &::before {
@@ -50,7 +50,7 @@ $breakpoints: ('sm': 'screen and (max-width: 576px)',
       height: 2px;
       width: 25px;
       background-color: #00478b;
-      transition: ease-in .3s;
+      transition: all 0.3s ease-in-out;
 
     }
 
@@ -62,47 +62,22 @@ $breakpoints: ('sm': 'screen and (max-width: 576px)',
       width: 15px;
       height: 2px;
       background-color: #00478b;
-      transition: ease-in .3s;
-
-
+      transition: all 0.3s ease-in-out;
     }
-
-
   }
 }
-
-// .p-bar
-// .c-burger__btn.close .p-bar__top{
-//   @include mq('lg') {
-//     transform: translate(-50%,10px) rotate(45deg);
-//     transition: transform .3s;
-//   }
-// }
-// .c-burger__btn.close .p-bar__mid{
-//   @include mq('lg') {
-//     opacity: 0;
-//     transition: opacity .3s;
-//   }
-// }
-// .c-burger__btn.close .p-bar__bottom{
-//   @include mq('lg') {
-//     transform: translate(-50%,-8px) rotate(-45deg);
-//     transition: transform .3s;
-//   }
-// }
-
 
 .open {
   button {
     background-color: transparent;
-    transition: ease-in .3s;
+    transition: all 0.3s ease-in-out;
   }
 
   .p-bar {
     background-color: transparent;
     top: 0;
     left: 0;
-    transition: ease-in .3s;
+    transition: all 0.3s ease-in-out;
 
 
     &::before {
@@ -110,7 +85,7 @@ $breakpoints: ('sm': 'screen and (max-width: 576px)',
       left: 0;
       transform: rotate(45deg);
       width: 20px;
-      transition: ease-in .3s;
+      transition: all 0.3s ease-in-out;
       background-color: #fff;
 
     }
@@ -120,26 +95,11 @@ $breakpoints: ('sm': 'screen and (max-width: 576px)',
       left: 0;
       transform: rotate(-45deg);
       width: 20px;
-      transition: ease-in .3s;
+      transition: all 0.3s ease-in-out;
       background-color: #fff;
 
     }
   }
-
-  // .c-burger__btn .p-bar__top{
-  //   transform: translate(-50%,10px) rotate(45deg);
-  //   transition: transform .3s;
-  //   background-color: #fff;
-  // }
-  // .c-burger__btn .p-bar__mid{
-  //   opacity: 0;
-  //   transition: opacity .3s;
-  // }
-  // .c-burger__btn .p-bar__bottom{
-  //   transform: translate(-50%,-8px) rotate(-45deg);
-  //   transition: transform .3s;
-  //   background-color: #fff;
-  // }
 }
 
 .c-burger__btn {
